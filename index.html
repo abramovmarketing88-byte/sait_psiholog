@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфиденциальное сопровождение руководителей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1220;
+      --bg-gradient: radial-gradient(circle at 20% 20%, #1e293b, #020617);
+      --bg-card: rgba(255,255,255,0.06);
+      --bg-glass: rgba(255,255,255,0.08);
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: rgba(255,255,255,0.12);
+      --shadow-premium: 0 30px 80px rgba(0,0,0,0.5);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      backdrop-filter: blur(20px);
+      background: rgba(2,6,23,0.6);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo { font-weight: 600; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      line-height: 1.55;
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg,#1e3a8a,#020617);
+      border-radius: 20px;
+      height: 400px;
+      box-shadow: var(--shadow-premium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    .section { margin-top: 60px; }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--bg-glass);
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      width: 500px;
+      max-width: 90%;
+      padding: 30px;
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid var(--border);
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #020617;
+      color: white;
+      border: 1px solid var(--border);
+      resize: vertical;
+      min-height: 110px;
+      font-family: inherit;
+    }
+
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background: #020617;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-secondary);
+    }
+
+    @media(max-width:900px) {
+      .hero-grid { grid-template-columns:1fr; }
+      .hero-visual { height:250px; }
+      .hero-text h1 { font-size:34px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Executive Psychology</div>
+      <div class="buttons">
+        <button class="btn" onclick="openAssistant()">AI помощник</button>
+        <a class="btn-outline btn" href="https://t.me/+78093635555" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="btn-outline btn" href="https://wa.me/78093635555?text=Здравствуйте, меня интересует консультация по бизнес-психологии. Какая информация от меня нужна?" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Конфиденциальное сопровождение руководителей</h1>
+          <p>Индивидуальная работа с собственником или топ-менеджером для снижения стресса, укрепления управленческой позиции и принятия сложных решений без внутреннего перегруза.</p>
+          <div class="buttons">
+            <button class="btn" onclick="openAssistant()">Задать вопрос AI</button>
+            <a class="btn btn-outline" href="#services">Услуги</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          Психологическая опора для тех,
+          кто принимает решения ежедневно
+        </div>
+      </div>
+
+      <div id="services" class="section">
+        <h2>Форматы сопровождения</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Индивидуальные сессии</h3>
+            <p>Работа с эмоциональной устойчивостью, тревогой, конфликтами и управленческим выгоранием.</p>
+          </div>
+          <div class="card">
+            <h3>Кризисная поддержка</h3>
+            <p>Быстрая помощь в период острых решений: увольнения, партнерские конфликты, масштабирование.</p>
+          </div>
+          <div class="card">
+            <h3>Психология лидерства</h3>
+            <p>Развитие управленческой зрелости, навыков влияния и устойчивой коммуникации внутри команды.</p>
+          </div>
+          <div class="card">
+            <h3>Закрытый формат</h3>
+            <p>Полная конфиденциальность, гибкий график и сопровождение в удобном для руководителя канале.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Executive Psychology · Конфиденциально · По предварительной записи
+  </footer>
+
+  <div class="modal" id="assistantModal" onclick="closeAssistantOnOverlay(event)">
+    <div class="modal-content">
+      <h3>AI помощник</h3>
+      <p style="color: var(--text-secondary);">Опишите ваш запрос — получите первичный ориентир и предложение следующего шага.</p>
+      <textarea id="userPrompt" placeholder="Например: сложно делегировать, команда ждет решений, ощущаю постоянное напряжение..."></textarea>
+      <div class="buttons" style="margin-top: 12px;">
+        <button class="btn" onclick="generateResponse()">Получить ответ</button>
+        <button class="btn btn-outline" onclick="closeAssistant()">Закрыть</button>
+      </div>
+      <div class="response" id="assistantResponse">Ответ появится здесь после вашего запроса.</div>
+    </div>
+  </div>
+
+  <script>
+    function openAssistant() {
+      document.getElementById('assistantModal').style.display = 'flex';
+    }
+
+    function closeAssistant() {
+      document.getElementById('assistantModal').style.display = 'none';
+    }
+
+    function closeAssistantOnOverlay(event) {
+      if (event.target.id === 'assistantModal') {
+        closeAssistant();
+      }
+    }
+
+    function generateResponse() {
+      const input = document.getElementById('userPrompt').value.trim();
+      const output = document.getElementById('assistantResponse');
+
+      if (!input) {
+        output.textContent = 'Пожалуйста, опишите вашу ситуацию, чтобы получить релевантный ответ.';
+        return;
+      }
+
+      output.textContent = 'По вашему описанию вижу признаки высокого когнитивного и эмоционального напряжения. Рекомендую: 1) зафиксировать 1–2 приоритетных решения на неделю, 2) вынести рутинные задачи в делегирование, 3) провести короткую диагностическую консультацию для определения точек максимальной нагрузки.';
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAssistant();
+      }
+    });
+  </script>
+</body>
+</html>
