@@ -1,420 +1,338 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Бизнес-психолог | Системная поддержка лидеров и команд</title>
-    <style>
-      :root {
-        --bg: #f4f7fb;
-        --text: #102236;
-        --muted: #5a6e84;
-        --primary: #2d68ff;
-        --primary-dark: #1e4ec7;
-        --accent: #19b89a;
-        --card: rgba(255, 255, 255, 0.94);
-        --shadow: 0 20px 45px rgba(15, 38, 73, 0.13);
-        --radius: 24px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конфиденциальное сопровождение руководителей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1220;
+      --bg-gradient: radial-gradient(circle at 20% 20%, #1e293b, #020617);
+      --bg-card: rgba(255,255,255,0.06);
+      --bg-glass: rgba(255,255,255,0.08);
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: rgba(255,255,255,0.12);
+      --shadow-premium: 0 30px 80px rgba(0,0,0,0.5);
+    }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+    * { box-sizing: border-box; }
 
-      body {
-        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top right, rgba(45, 104, 255, 0.19), transparent 38%),
-          radial-gradient(circle at 12% 22%, rgba(25, 184, 154, 0.16), transparent 35%),
-          var(--bg);
-        line-height: 1.5;
-      }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+    }
 
-      .container {
-        width: min(1160px, 92vw);
-        margin-inline: auto;
-      }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-      header {
-        padding: 26px 0;
-      }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      backdrop-filter: blur(20px);
+      background: rgba(2,6,23,0.6);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
 
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 18px;
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 12px 18px;
-      }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 800;
-      }
+    .logo { font-weight: 600; }
 
-      .brand-mark {
-        width: 40px;
-        height: 40px;
-        display: grid;
-        place-items: center;
-        border-radius: 12px;
-        background: linear-gradient(130deg, var(--primary), var(--accent));
-        color: #fff;
-        font-size: 1.2rem;
-      }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
 
-      .nav a {
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 550;
-      }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
 
-      .nav-links {
-        display: flex;
-        gap: 24px;
-      }
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        border-radius: 14px;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        padding: 14px 22px;
-        font-weight: 650;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      line-height: 1.55;
+    }
 
-      .btn:hover {
-        transform: translateY(-2px);
-      }
+    .hero-visual {
+      background: linear-gradient(135deg,#1e3a8a,#020617);
+      border-radius: 20px;
+      height: 400px;
+      box-shadow: var(--shadow-premium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 20px;
+    }
 
-      .btn-primary {
-        color: #fff;
-        background: linear-gradient(130deg, var(--primary), #436dff);
-        box-shadow: 0 12px 24px rgba(45, 104, 255, 0.35);
-      }
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-      .btn-primary:hover {
-        background: linear-gradient(130deg, var(--primary-dark), var(--primary));
-      }
+    .btn {
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .btn-light {
-        color: var(--primary-dark);
-        background: #e9efff;
-      }
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
 
-      main {
-        padding-bottom: 70px;
-      }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
 
-      .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 34px;
-        align-items: center;
-        margin: 30px 0 55px;
-      }
+    .section { margin-top: 60px; }
 
-      .hero-copy h1 {
-        font-size: clamp(2.1rem, 4.8vw, 3.8rem);
-        line-height: 1.08;
-        margin-bottom: 16px;
-      }
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
 
-      .hero-copy p {
-        color: var(--muted);
-        max-width: 56ch;
-        font-size: 1.08rem;
-        margin-bottom: 24px;
-      }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
 
-      .hero-actions {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
+    .card {
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
 
-      .hero-stats {
-        display: grid;
-        gap: 14px;
-      }
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--bg-glass);
+    }
 
-      .stat-card {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: var(--shadow);
-      }
+    .card h3 { margin-top: 0; }
 
-      .stat-card strong {
-        display: block;
-        font-size: 2.05rem;
-      }
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      z-index: 2000;
+    }
 
-      .stat-card span {
-        color: var(--muted);
-      }
+    .modal-content {
+      width: 500px;
+      max-width: 90%;
+      padding: 30px;
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid var(--border);
+    }
 
-      .section-title {
-        font-size: clamp(1.7rem, 3vw, 2.3rem);
-        margin-bottom: 8px;
-      }
+    textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #020617;
+      color: white;
+      border: 1px solid var(--border);
+      resize: vertical;
+      min-height: 110px;
+      font-family: inherit;
+    }
 
-      .section-subtitle {
-        color: var(--muted);
-        margin-bottom: 30px;
-        max-width: 70ch;
-      }
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background: #020617;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
 
-      .services {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        margin-bottom: 66px;
-      }
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-secondary);
+    }
 
-      .service-card {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: var(--shadow);
-      }
-
-      .service-card h3 {
-        margin-bottom: 10px;
-        font-size: 1.18rem;
-      }
-
-      .service-card p {
-        color: var(--muted);
-      }
-
-      .pricing-wrap {
-        margin-bottom: 66px;
-      }
-
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-      }
-
-      .price-card {
-        border-radius: var(--radius);
-        padding: 26px;
-        background: var(--card);
-        box-shadow: var(--shadow);
-        border: 1px solid #dce5f5;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .price-card.featured {
-        background: linear-gradient(180deg, #f6f9ff, #edf4ff);
-        border-color: #b4ccff;
-        transform: translateY(-8px);
-      }
-
-      .price-label {
-        color: var(--muted);
-        font-weight: 600;
-      }
-
-      .price {
-        font-size: 2rem;
-        font-weight: 800;
-      }
-
-      .price-card ul {
-        list-style: none;
-        display: grid;
-        gap: 8px;
-        color: #28425f;
-      }
-
-      .price-card ul li::before {
-        content: "✓ ";
-        color: var(--accent);
-        font-weight: 700;
-      }
-
-      .cta {
-        padding: 36px;
-        border-radius: calc(var(--radius) + 4px);
-        background: linear-gradient(130deg, #1f4fcb, #2c75ff);
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 18px;
-      }
-
-      .cta p {
-        opacity: 0.9;
-      }
-
-      footer {
-        padding: 28px 0 36px;
-        color: var(--muted);
-      }
-
-      @media (max-width: 980px) {
-        .hero,
-        .services,
-        .pricing-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .price-card.featured {
-          transform: none;
-        }
-
-        .cta {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .nav-links {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container nav">
-        <div class="brand">
-          <div class="brand-mark">Ψ</div>
-          <span>Business Mind</span>
-        </div>
-        <nav class="nav-links">
-          <a href="#services">Услуги</a>
-          <a href="#pricing">Тарифы</a>
-          <a href="#contacts">Контакты</a>
-        </nav>
-        <a class="btn btn-light" href="#contacts">Бесплатная консультация</a>
+    @media(max-width:900px) {
+      .hero-grid { grid-template-columns:1fr; }
+      .hero-visual { height:250px; }
+      .hero-text h1 { font-size:34px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Executive Psychology</div>
+      <div class="buttons">
+        <button class="btn" onclick="openAssistant()">AI помощник</button>
+        <a class="btn-outline btn" id="telegramLink" href="tg://resolve?phone=79091363555" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="btn-outline btn" id="whatsAppLink" href="https://wa.me/79091363555?text=Здравствуйте, меня интересует консультация по бизнес-психологии. Какая информация от меня нужна?" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="container">
-      <section class="hero">
-        <div class="hero-copy">
-          <h1>Большой, уверенный и продающий сайт для бизнес-психолога</h1>
-          <p>
-            Помогаю собственникам, руководителям и ключевым сотрудникам снижать стресс, принимать
-            сильные решения и увеличивать результаты команды. Без воды — только практическая
-            психология в контексте бизнеса.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#pricing">Выбрать пакет</a>
-            <a class="btn btn-light" href="#services">Посмотреть услуги</a>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Конфиденциальное сопровождение руководителей</h1>
+          <p>Индивидуальная работа с собственником или топ-менеджером для снижения стресса, укрепления управленческой позиции и принятия сложных решений без внутреннего перегруза.</p>
+          <div class="buttons">
+            <button class="btn" onclick="openAssistant()">Задать вопрос AI</button>
+            <a class="btn btn-outline" href="#services">Услуги</a>
           </div>
         </div>
-        <div class="hero-stats">
-          <article class="stat-card">
-            <strong>+120</strong>
-            <span>клиентов: собственники, CEO, HRD, топ-менеджеры</span>
-          </article>
-          <article class="stat-card">
-            <strong>87%</strong>
-            <span>клиентов отмечают рост устойчивости и ясности решений за 2 месяца</span>
-          </article>
-          <article class="stat-card">
-            <strong>10 лет</strong>
-            <span>практики на стыке психологии, лидерства и организационного развития</span>
-          </article>
+        <div class="hero-visual">
+          Психологическая опора для тех,
+          кто принимает решения ежедневно
         </div>
-      </section>
+      </div>
 
-      <section id="services">
-        <h2 class="section-title">Что вы получите</h2>
-        <p class="section-subtitle">
-          Системная работа с психологическими ограничениями, выгоранием, конфликтами и управленческой
-          нагрузкой. Ниже базовые направления, которые чаще всего выбирают клиенты.
-        </p>
-        <div class="services">
-          <article class="service-card">
-            <h3>Индивидуальный коучинг руководителя</h3>
-            <p>Работа с тревогой, усталостью и стратегическим фокусом. Конфиденциально и по KPI.</p>
-          </article>
-          <article class="service-card">
-            <h3>Психология командной эффективности</h3>
-            <p>Диагностика коммуникаций, снижение напряжения, восстановление доверия в команде.</p>
-          </article>
-          <article class="service-card">
-            <h3>Антикризисное сопровождение бизнеса</h3>
-            <p>Поддержка собственника и управленческой команды в период изменений и перегрузки.</p>
-          </article>
+      <div id="services" class="section">
+        <h2>Форматы сопровождения</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Индивидуальные сессии</h3>
+            <p>Работа с эмоциональной устойчивостью, тревогой, конфликтами и управленческим выгоранием.</p>
+          </div>
+          <div class="card">
+            <h3>Кризисная поддержка</h3>
+            <p>Быстрая помощь в период острых решений: увольнения, партнерские конфликты, масштабирование.</p>
+          </div>
+          <div class="card">
+            <h3>Психология лидерства</h3>
+            <p>Развитие управленческой зрелости, навыков влияния и устойчивой коммуникации внутри команды.</p>
+          </div>
+          <div class="card">
+            <h3>Закрытый формат</h3>
+            <p>Полная конфиденциальность, гибкий график и сопровождение в удобном для руководителя канале.</p>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="pricing-wrap" id="pricing">
-        <h2 class="section-title">Базовые расценки</h2>
-        <p class="section-subtitle">
-          Прозрачная и понятная стоимость. Выберите формат под текущую задачу: от точечных сессий до
-          долгосрочного сопровождения.
-        </p>
-        <div class="pricing-grid">
-          <article class="price-card">
-            <span class="price-label">Старт</span>
-            <div class="price">15 000 ₽ / сессия</div>
-            <ul>
-              <li>90 минут глубокой диагностики</li>
-              <li>Персональный план на 2 недели</li>
-              <li>Рекомендации по управленческому фокусу</li>
-            </ul>
-            <a class="btn btn-light" href="#contacts">Записаться</a>
-          </article>
+  <footer>
+    © 2026 Executive Psychology · Конфиденциально · По предварительной записи
+  </footer>
 
-          <article class="price-card featured">
-            <span class="price-label">Оптимум</span>
-            <div class="price">95 000 ₽ / месяц</div>
-            <ul>
-              <li>4 индивидуальные сессии</li>
-              <li>Поддержка в мессенджере 5/2</li>
-              <li>Разбор сложных кейсов с командой</li>
-            </ul>
-            <a class="btn btn-primary" href="#contacts">Выбрать тариф</a>
-          </article>
+  <div class="modal" id="assistantModal" onclick="closeAssistantOnOverlay(event)">
+    <div class="modal-content">
+      <h3>AI помощник</h3>
+      <p style="color: var(--text-secondary);">Опишите ваш запрос — получите первичный ориентир и предложение следующего шага.</p>
+      <textarea id="userPrompt" placeholder="Например: сложно делегировать, команда ждет решений, ощущаю постоянное напряжение..."></textarea>
+      <div class="buttons" style="margin-top: 12px;">
+        <button class="btn" onclick="generateResponse()">Получить ответ</button>
+        <button class="btn btn-outline" onclick="closeAssistant()">Закрыть</button>
+      </div>
+      <div class="response" id="assistantResponse">Ответ появится здесь после вашего запроса.</div>
+    </div>
+  </div>
 
-          <article class="price-card">
-            <span class="price-label">Премиум</span>
-            <div class="price">220 000 ₽ / месяц</div>
-            <ul>
-              <li>Сопровождение собственника и ТОП-3</li>
-              <li>Еженедельные командные сессии</li>
-              <li>Антикризисный протокол на 90 дней</li>
-            </ul>
-            <a class="btn btn-light" href="#contacts">Обсудить формат</a>
-          </article>
-        </div>
-      </section>
+  <script>
+    const PHONE_NUMBER = '79091363555';
+    const WHATSAPP_MESSAGE = 'Здравствуйте, меня интересует консультация по бизнес-психологии. Какая информация от меня нужна?';
 
-      <section class="cta" id="contacts">
-        <div>
-          <h2>Готовы усилить себя и бизнес?</h2>
-          <p>Оставьте заявку — вернусь с первичным планом и предложением формата работы.</p>
-        </div>
-        <a class="btn btn-light" href="mailto:hello@businessmind.ru">Написать: hello@businessmind.ru</a>
-      </section>
-    </main>
+    const telegramLink = document.getElementById('telegramLink');
+    const whatsAppLink = document.getElementById('whatsAppLink');
 
-    <footer>
-      <div class="container">© 2026 Business Mind. Бизнес-психология для сильных решений и устойчивого роста.</div>
-    </footer>
-  </body>
+    if (telegramLink) {
+      telegramLink.href = `tg://resolve?phone=${PHONE_NUMBER}`;
+    }
+
+    if (whatsAppLink) {
+      whatsAppLink.href = `https://wa.me/${PHONE_NUMBER.replace('+', '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    }
+
+    function openAssistant() {
+      document.getElementById('assistantModal').style.display = 'flex';
+    }
+
+    function closeAssistant() {
+      document.getElementById('assistantModal').style.display = 'none';
+    }
+
+    function closeAssistantOnOverlay(event) {
+      if (event.target.id === 'assistantModal') {
+        closeAssistant();
+      }
+    }
+
+    function generateResponse() {
+      const input = document.getElementById('userPrompt').value.trim();
+      const output = document.getElementById('assistantResponse');
+
+      if (!input) {
+        output.textContent = 'Пожалуйста, опишите вашу ситуацию, чтобы получить релевантный ответ.';
+        return;
+      }
+
+      output.textContent = 'По вашему описанию вижу признаки высокого когнитивного и эмоционального напряжения. Рекомендую: 1) зафиксировать 1–2 приоритетных решения на неделю, 2) вынести рутинные задачи в делегирование, 3) провести короткую диагностическую консультацию для определения точек максимальной нагрузки.';
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAssistant();
+      }
+    });
+  </script>
+</body>
 </html>
