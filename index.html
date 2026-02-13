@@ -223,7 +223,7 @@
       <div class="logo">Executive Psychology</div>
       <div class="buttons">
         <button class="btn" onclick="openAssistant()">AI помощник</button>
-        <a class="btn-outline btn" id="telegramLink" href="https://t.me/+79091363555" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="btn-outline btn" id="telegramLink" href="tg://resolve?phone=79091363555" target="_blank" rel="noopener noreferrer">Telegram</a>
         <a class="btn-outline btn" id="whatsAppLink" href="https://wa.me/79091363555?text=Здравствуйте, меня интересует консультация по бизнес-психологии. Какая информация от меня нужна?" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
@@ -288,14 +288,14 @@
   </div>
 
   <script>
-    const PHONE_NUMBER = '+79091363555';
+    const PHONE_NUMBER = '79091363555';
     const WHATSAPP_MESSAGE = 'Здравствуйте, меня интересует консультация по бизнес-психологии. Какая информация от меня нужна?';
 
     const telegramLink = document.getElementById('telegramLink');
     const whatsAppLink = document.getElementById('whatsAppLink');
 
     if (telegramLink) {
-      telegramLink.href = `https://t.me/${PHONE_NUMBER}`;
+      telegramLink.href = `tg://resolve?phone=${PHONE_NUMBER}`;
     }
 
     if (whatsAppLink) {
